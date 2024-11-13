@@ -28,7 +28,7 @@ jobs:
               with:
                   path: |
                       ./node_modules
-                      ./api/node_modules
+                      ./server/node_modules
                       ./client/node_modules
                   key: ${{ runner.os }}-${{  hashfiles('**/package-lock.json')}}
 
