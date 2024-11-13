@@ -7,9 +7,11 @@ import { dataSource } from "./data-source";
 import RepoResolver from "./resolver/repo.resolver";
 import LanguageResolver from "./resolver/lang.resolver";
 
+
+const port = parseInt(process.env.PORT || "4000", 10);
+
 dotenv.config();
-const { PORT } = process.env;
-console.log('%c⧭', 'color: #ff0000', PORT);
+
 
 (async () => {
   await dataSource.initialize();
@@ -22,9 +24,7 @@ console.log('%c⧭', 'color: #ff0000', PORT);
   });
 
   const { url } = await startStandaloneServer(server, {
-    // listen: { host: '0.0.0.0', port: Number(PORT) }
-    listen: { host: '0.0.0.0', port: Number(PORT) || 3000 },
+    listen: { host: '0.0.0.0', port },
   });
-
   console.log(`🚀  Server ready at: ${url}`);
 })();
