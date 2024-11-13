@@ -33,7 +33,7 @@ jobs:
                   key: ${{ runner.os }}-${{  hashfiles('**/package-lock.json')}}
 
             - name: Install package dependence
-              run: npm run synchro
+              run: npm run install
 
             - name: Run linters
               run: npx lint-staged --diff="origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF}"
